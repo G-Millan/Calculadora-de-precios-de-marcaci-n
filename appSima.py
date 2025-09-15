@@ -102,13 +102,14 @@ st.markdown(
         text-align: center;
         font-size: 12px;  /* Más pequeño */
         color: #777;      /* Gris suave */
-        margin-top: 80px; /* Empuja más hacia abajo */
+        margin-top: 400px; /* Empuja más hacia abajo */
     }
     </style>
     <div class="footer">Hecho con ❤️ por Germán Millán 🤓</div>
     """,
     unsafe_allow_html=True
 )
+
 
 
 
