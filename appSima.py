@@ -94,23 +94,29 @@ if st.button("Calcular precio"):
             st.success(f"💰 Valor de la marcación: ${resultado:,.0f}")
         st.info("⚠️ Este precio es NETO, no incluye IVA y puede variar según negociación.")
 
-# Footer fijo en la parte inferior
+# Footer fijo alineado con el contenido
 st.markdown(
     """
     <style>
     .footer {
-        position: fixed;   /* lo deja fijo en pantalla */
-        bottom: 10px;      /* distancia desde el borde inferior */
-        width: 100%;       /* ocupa todo el ancho */
+        position: fixed;
+        bottom: 10px;        /* Distancia desde el borde inferior */
+        left: 0;
+        right: 0;
+        max-width: 700px;    /* Ancho similar al contenedor central de Streamlit */
+        margin: auto;        /* Centrado horizontal */
         text-align: center;
-        font-size: 12px;   /* más pequeño */
-        color: #777;       /* gris suave */
+        font-size: 12px;
+        color: #777;
     }
     </style>
     <div class="footer">Hecho con ❤️ por Germán Millán 🤓</div>
     """,
     unsafe_allow_html=True
 )
+
+
+
 
 
 
