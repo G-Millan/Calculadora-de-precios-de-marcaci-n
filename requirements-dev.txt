@@ -1,0 +1,11 @@
+# Development dependencies (for local development)
+-r requirements.txt
+
+pytest==7.4.3
+pytest-cov==4.1.0
+black==24.7.1
+ruff==0.2.1
+flake8==7.1.0
+isort==5.13.2
+pre-commit==3.7.1
+python-dotenv==1.0.1
