@@ -1,3 +1,16 @@
-streamlit
-pandas
-openpyxl
+# Core dependencies
+streamlit==1.37.1
+pandas==2.2.2
+openpyxl==3.1.2
+
+# Development & Testing
+pytest==7.4.3
+pytest-cov==4.1.0
+black==24.7.1
+ruff==0.2.1
+flake8==7.1.0
+isort==5.13.2
+pre-commit==3.7.1
+
+# Logging & Utilities
+python-dotenv==1.0.1
