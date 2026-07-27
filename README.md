@@ -1,70 +1,64 @@
 <div align="center">
 
-# 📦 Calculadora de Precios de Marcación
+# Calculadora de Precios de Marcación
 
 [![Python 3.8+](https://img.shields.io/badge/Python-3.8+-3776ab.svg?style=flat-square&logo=python)](https://www.python.org/downloads/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.37+-FF4B4B.svg?style=flat-square&logo=streamlit)](https://streamlit.io)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
-[![Code Quality](https://img.shields.io/badge/Code%20Quality-Professional-brightgreen.svg?style=flat-square)](#-estándares-de-calidad)
+[![Code Quality](https://img.shields.io/badge/Code%20Quality-Professional-brightgreen.svg?style=flat-square)](#estándares-de-calidad)
 
 Una aplicación web profesional para automatizar y acelerar la consulta de precios de marcación de productos, basada en reglas de negocio complejas.
 
-**[📊 Características](#-características) •** 
-**[🚀 Inicio Rápido](#-inicio-rápido) •** 
-**[📚 Documentación](#-documentación) •** 
-**[🏗️ Arquitectura](#-arquitectura) •** 
-**[📋 Licencia](#-licencia)**
+[Características](#características) • [Inicio Rápido](#inicio-rápido) • [Documentación](#documentación) • [Arquitectura](#arquitectura) • [Licencia](#licencia)
 
 </div>
 
 ---
 
-## 🎯 El Problema
+## El Problema
 
-En el equipo comercial, **consultar precios de marcación era un proceso manual y propenso a errores:**
+En el equipo comercial, consultar precios de marcación era un proceso manual y propenso a errores:
 
-- ⏱️ Revisar manualmente **cientos de filas** en hojas de cálculo
-- 🔍 Cruzar múltiples variables: producto, técnica, tintas, tamaño, cantidad
-- ❌ **Errores humanos** en la búsqueda y cálculo
-- ⚠️ Inconsistencia en los precios otorgados
-- 😤 Tiempo perdido que podría invertirse en ventas
+- Revisar manualmente cientos de filas en hojas de cálculo
+- Cruzar múltiples variables: producto, técnica, tintas, tamaño, cantidad
+- Errores humanos en la búsqueda y cálculo
+- Inconsistencia en los precios otorgados
+- Tiempo perdido que podría invertirse en ventas
 
-**Problema cuantificado:** Cada consulta tomaba entre **5-15 minutos** de búsqueda manual.
+**Problema cuantificado:** Cada consulta tomaba entre 5-15 minutos de búsqueda manual.
 
 ---
 
-## ✨ La Solución
+## La Solución
 
-Se desarrolló una **aplicación web inteligente** que:
+Se desarrolló una aplicación web inteligente que:
 
-- ⚡ Calcula precios en **segundos** (no minutos)
-- 🎯 Filtra automáticamente según criterios complejos
-- ✅ Garantiza **consistencia** en cada cálculo
-- 📊 Implementa reglas de negocio (precios mínimos, rangos de cantidad)
-- 🔒 Interfaz intuitiva sin necesidad de capacitación
+- Calcula precios en segundos (no minutos)
+- Filtra automáticamente según criterios complejos
+- Garantiza consistencia en cada cálculo
+- Implementa reglas de negocio (precios mínimos, rangos de cantidad)
+- Interfaz intuitiva sin necesidad de capacitación
 
-### 📈 Impacto Medido
+### Impacto Medido
 
 | Métrica | Antes | Después | Mejora |
 |---------|-------|---------|--------|
-| **Tiempo por consulta** | 5-15 min | < 30 seg | **90%↓** |
-| **Errores humanos** | ~15% | ~0% | **99%↓** |
-| **Consultas/día posibles** | ~50 | 200+ | **4x más** |
-| **Confianza en precios** | Media | Alta | ✅ Verificado |
+| Tiempo por consulta | 5-15 min | < 30 seg | 90% ↓ |
+| Errores humanos | ~15% | ~0% | 99% ↓ |
+| Consultas/día posibles | ~50 | 200+ | 4x más |
+| Confianza en precios | Media | Alta | Verificado |
 
 ---
 
-## 🚀 Inicio Rápido
+## Inicio Rápido
 
 ### Requisitos Previos
 
-- **Python 3.8+**
-- **pip** (gestor de paquetes)
-- **Git** (opcional, para clonar)
+- Python 3.8+
+- pip (gestor de paquetes)
+- Git (opcional, para clonar)
 
 ### Instalación
-
-#### Opción 1: Desde el repositorio (Recomendado)
 
 ```bash
 # Clonar el repositorio
@@ -82,13 +76,6 @@ source venv/bin/activate
 
 # Instalar dependencias
 pip install -r requirements.txt
-```
-
-#### Opción 2: Instalación con dev dependencies (Para contribuidores)
-
-```bash
-pip install -r requirements.txt
-pip install -e ".[dev]"
 ```
 
 ### Ejecución
@@ -114,30 +101,30 @@ flake8 .
 
 ---
 
-## 📊 Características
+## Características
 
-### 🎯 Funcionalidades Principales
+### Funcionalidades Principales
 
-- **Búsqueda Inteligente**: Selecciona producto, técnica, tintas y tamaño
-- **Cálculo Automático**: Obtén precios en segundos
-- **Reglas de Negocio**: Maneja precios mínimos y rangos de cantidad
-- **Interfaz Amigable**: Diseño intuitivo sin necesidad de capacitación
-- **Validaciones**: Detecta y reporta errores de entrada
-- **Logging**: Registro de todas las operaciones para auditoría
+- Búsqueda Inteligente: Selecciona producto, técnica, tintas y tamaño
+- Cálculo Automático: Obtén precios en segundos
+- Reglas de Negocio: Maneja precios mínimos y rangos de cantidad
+- Interfaz Amigable: Diseño intuitivo sin necesidad de capacitación
+- Validaciones: Detecta y reporta errores de entrada
+- Logging: Registro de todas las operaciones para auditoría
 
-### 🏆 Estándares de Código Implementados
+### Estándares de Código Implementados
 
-- ✅ **SOLID Principles**: Arquitectura modular y escalable
-- ✅ **Clean Code**: Nombres descriptivos, funciones pequeñas
-- ✅ **Type Hints**: Anotaciones de tipos para mayor seguridad
-- ✅ **Docstrings**: Documentación de cada módulo y función
-- ✅ **Unit Tests**: Cobertura de código con pytest
-- ✅ **Pre-commit Hooks**: Garantiza calidad antes de cada commit
-- ✅ **Logging Profesional**: Sistema de eventos y errores
+- SOLID Principles: Arquitectura modular y escalable
+- Clean Code: Nombres descriptivos, funciones pequeñas
+- Type Hints: Anotaciones de tipos para mayor seguridad
+- Docstrings: Documentación de cada módulo y función
+- Unit Tests: Cobertura de código con pytest
+- Pre-commit Hooks: Garantiza calidad antes de cada commit
+- Logging Profesional: Sistema de eventos y errores
 
 ---
 
-## 📚 Documentación
+## Documentación
 
 ### Estructura del Proyecto
 
@@ -183,7 +170,7 @@ calculadora-precios/
 └── README.md                       # Este archivo
 ```
 
-### 🏗️ Arquitectura
+### Arquitectura
 
 #### Separación de Responsabilidades
 
@@ -232,7 +219,7 @@ calculadora-precios/
 
 ---
 
-## 🔧 Guía de Uso
+## Guía de Uso
 
 ### Paso 1: Seleccionar Producto
 
@@ -266,7 +253,7 @@ Haz clic en "Calcular precio" para obtener el resultado
 
 ---
 
-## 🧪 Testing y Calidad
+## Testing y Calidad
 
 ### Ejecutar Tests
 
@@ -299,43 +286,43 @@ pre-commit run --all-files
 
 ### Estándares Aplicados
 
-- **Black**: Formato de código consistente
-- **Ruff**: Análisis estático rápido
-- **Flake8**: Linter PEP 8
-- **isort**: Ordenamiento de imports
-- **Pytest**: Framework de testing
-- **Type Hints**: Anotaciones de tipos
+- Black: Formato de código consistente
+- Ruff: Análisis estático rápido
+- Flake8: Linter PEP 8
+- isort: Ordenamiento de imports
+- Pytest: Framework de testing
+- Type Hints: Anotaciones de tipos
 
 ---
 
-## 📈 Futuras Mejoras
+## Futuras Mejoras
 
-### Corto Plazo (Next Sprint)
+### Corto Plazo
 
-- [ ] Exportar resultados a PDF
-- [ ] Historial de consultas
-- [ ] Descarga de precios en Excel
-- [ ] Soporte para múltiples idiomas
+- Exportar resultados a PDF
+- Historial de consultas
+- Descarga de precios en Excel
+- Soporte para múltiples idiomas
 
 ### Mediano Plazo
 
-- [ ] API REST para integraciones
-- [ ] Dashboard de estadísticas
-- [ ] Notificaciones de cambios de precio
-- [ ] Autenticación de usuarios
+- API REST para integraciones
+- Dashboard de estadísticas
+- Notificaciones de cambios de precio
+- Autenticación de usuarios
 
 ### Largo Plazo
 
-- [ ] Machine learning para predicción de precios
-- [ ] Integración con sistema CRM
-- [ ] Mobile app
-- [ ] Análisis predictivo de demanda
+- Machine learning para predicción de precios
+- Integración con sistema CRM
+- Mobile app
+- Análisis predictivo de demanda
 
 ---
 
-## 🤝 Contribuir
+## Contribuir
 
-¡Las contribuciones son bienvenidas! Por favor:
+Las contribuciones son bienvenidas. Por favor:
 
 1. Lee [CONTRIBUTING.md](CONTRIBUTING.md)
 2. Crea una rama para tu feature
@@ -366,34 +353,34 @@ git push origin feature/mi-feature
 
 ---
 
-## 🔒 Seguridad
+## Seguridad
 
 Por favor, consulta [SECURITY.md](SECURITY.md) para reportar vulnerabilidades de forma responsable.
 
 ---
 
-## 📝 Licencia
+## Licencia
 
 Este proyecto está licenciado bajo la [Licencia MIT](LICENSE).
 
-**Resumen:**
-- ✅ Uso comercial
-- ✅ Uso privado
-- ✅ Modificación
-- ✅ Distribución
-- ⚠️ Requiere incluir licencia y aviso
+Resumen:
+- Uso comercial permitido
+- Uso privado permitido
+- Modificación permitida
+- Distribución permitida
+- Requiere incluir licencia y aviso
 
 ---
 
-## 📞 Contacto
+## Contacto
 
 **Germán Millán**
-- 📧 Email: produccion@almadelascosas.com
-- 🔗 GitHub: [@G-Millan](https://github.com/G-Millan)
+- Email: produccion@almadelascosas.com
+- GitHub: [@G-Millan](https://github.com/G-Millan)
 
 ---
 
-## 🙏 Agradecimientos
+## Agradecimientos
 
 Agradecemos a:
 - Equipo comercial por feedback constante
@@ -404,8 +391,8 @@ Agradecemos a:
 
 <div align="center">
 
-### Made with ❤️ by Germán Millán
+Made with ❤️ by Germán Millán
 
-**[⬆ Volver al inicio](#-calculadora-de-precios-de-marcación)**
+[⬆ Volver al inicio](#calculadora-de-precios-de-marcación)
 
 </div>
