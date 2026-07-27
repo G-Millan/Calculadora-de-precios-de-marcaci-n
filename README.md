@@ -375,7 +375,7 @@ Resumen:
 ## Contacto
 
 **Germán Millán**
-- Email: produccion@almadelascosas.com
+- Email: germanmillan777@gmail.com
 - GitHub: [@G-Millan](https://github.com/G-Millan)
 
 ---
