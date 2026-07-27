@@ -8,7 +8,13 @@ Author: Germán Millán
 Version: 2.0.0
 """
 
+import sys
+from pathlib import Path
+
 import streamlit as st
+
+# Ensure imports work from any working directory
+sys.path.insert(0, str(Path(__file__).parent))
 
 import config
 from services.calculator import create_calculator
@@ -62,7 +68,7 @@ def render_header():
 
 def render_product_examples():
     """Render expandable section with product categories and examples."""
-    with st.expander("📘 Ver ejemplos y descripciones de productos"):
+    with st.expander("Ver ejemplos y descripciones de productos"):
         st.markdown(
             """
             | **Categoría** | **Descripción / Ejemplos de artículos** |
@@ -99,7 +105,7 @@ def render_filters_form(df):
     # Product selection
     products = sorted(df[config.COLUMN_PRODUCTO].dropna().unique())
     selections["product"] = st.selectbox(
-        "📦 Seleccione el producto:",
+        "Seleccione el producto:",
         options=products,
         key="product_select",
     )
@@ -107,7 +113,7 @@ def render_filters_form(df):
     # Technique selection
     techniques = get_techniques_for_product(df, selections["product"])
     selections["technique"] = st.selectbox(
-        "🎨 Seleccione la técnica:",
+        "Seleccione la técnica:",
         options=techniques,
         key="technique_select",
     )
@@ -117,7 +123,7 @@ def render_filters_form(df):
     selections["inks"] = None
     if inks:
         selections["inks"] = st.selectbox(
-            "🖨️ Seleccione el número de tintas:",
+            "Seleccione el número de tintas:",
             options=inks,
             key="inks_select",
         )
@@ -132,7 +138,7 @@ def render_filters_form(df):
             f"Desde {s[0]:.1f} cm hasta {s[1]:.1f} cm" for s in sizes
         ]
         size_index = st.selectbox(
-            "📐 Seleccione el tamaño:",
+            "Seleccione el tamaño:",
             options=range(len(size_options)),
             format_func=lambda i: size_options[i],
             key="size_select",
@@ -141,7 +147,7 @@ def render_filters_form(df):
 
     # Quantity input
     selections["quantity"] = st.number_input(
-        "📊 Ingrese la cantidad de artículos a marcar:",
+        "Ingrese la cantidad de artículos a marcar:",
         min_value=config.MIN_QUANTITY,
         max_value=config.MAX_QUANTITY,
         step=1,
@@ -171,13 +177,13 @@ def render_price_result(price, price_type, unit_price):
     with col1:
         if price_type == config.MSG_MINIMUM_PRICE:
             st.success(
-                f"💰 **Valor de la marcación (MÍNIMA):** {price_str}"
+                f"Valor de la marcación (MÍNIMA): {price_str}"
             )
         else:
-            st.success(f"💰 **Valor total de la marcación:** {price_str}")
+            st.success(f"Valor total de la marcación: {price_str}")
 
     with col2:
-        st.info(f"🔹 **Valor unitario:** {unit_price_str}")
+        st.info(f"Valor unitario: {unit_price_str}")
 
     # Display disclaimer
     st.warning(config.MSG_PRICE_NET)
@@ -189,7 +195,7 @@ def render_footer():
     col1, col2, col3 = st.columns(3)
 
     with col1:
-        st.caption(f"**v{config.APP_VERSION}**")
+        st.caption(f"v{config.APP_VERSION}")
     with col2:
         st.caption("Made with ❤️ by Germán Millán")
     with col3:
@@ -213,7 +219,7 @@ def main():
 
         if df is None or df.empty:
             st.error(
-                "❌ Error al cargar la base de datos de precios. "
+                "Error al cargar la base de datos de precios. "
                 "Por favor, intente más tarde."
             )
             logger.error("Failed to load pricing data")
@@ -223,7 +229,7 @@ def main():
         render_header()
 
         # Create tabs for organization
-        tab1, tab2 = st.tabs(["🧮 Calculadora", "📚 Información"])
+        tab1, tab2 = st.tabs(["Calculadora", "Información"])
 
         with tab1:
             st.markdown("---")
@@ -234,14 +240,14 @@ def main():
             st.markdown("---")
 
             # Create form
-            st.subheader("⚙️ Configura tu búsqueda")
+            st.subheader("Configura tu búsqueda")
 
             with st.form(key="pricing_form", clear_on_submit=False):
                 selections = render_filters_form(df)
 
                 # Submit button
                 submit_button = st.form_submit_button(
-                    "🔍 Calcular precio",
+                    "Calcular precio",
                     use_container_width=True,
                     type="primary",
                 )
@@ -251,7 +257,7 @@ def main():
                 # Validate quantity
                 is_valid, error_msg = validate_quantity(selections["quantity"])
                 if not is_valid:
-                    st.error(f"❌ {error_msg}")
+                    st.error(f"{error_msg}")
                     return
 
                 # Apply filters
@@ -275,13 +281,13 @@ def main():
 
                 # Display results or error
                 if price is None:
-                    st.error(f"❌ {message}")
+                    st.error(f"{message}")
                 else:
                     unit_price = calculator.get_unit_price(
                         price,
                         selections["quantity"],
                     )
-                    st.markdown("### 📊 Resultados")
+                    st.markdown("### Resultados")
                     render_price_result(price, price_type, unit_price)
 
                     # Log successful calculation
@@ -293,34 +299,33 @@ def main():
                     )
 
         with tab2:
-            st.markdown("## 📖 Acerca de esta aplicación")
+            st.markdown("## Acerca de esta aplicación")
             st.markdown(
                 """
-                ### 🎯 Propósito
+                ### Propósito
                 Esta aplicación automatiza el cálculo de precios de marcación,
                 reemplazando la búsqueda manual en hojas de cálculo.
 
-                ### 📊 Características
-                - **Búsqueda Rápida**: Obtén precios en segundos
-                - **Filtros Inteligentes**: Selecciona producto, técnica, tintas y tamaño
-                - **Precios Actualizados**: Basado en la base de datos oficial
-                - **Reglas de Negocio**: Considera precios mínimos y rangos de cantidad
+                ### Características
+                - Búsqueda Rápida: Obtén precios en segundos
+                - Filtros Inteligentes: Selecciona producto, técnica, tintas y tamaño
+                - Precios Actualizados: Basado en la base de datos oficial
+                - Reglas de Negocio: Considera precios mínimos y rangos de cantidad
 
-                ### 💡 ¿Cómo usar?
-                1. Selecciona el **tipo de producto** que deseas marcar
-                2. Elige la **técnica** de marcación
-                3. Especifica **tintas** y **tamaño** (si aplica)
-                4. Ingresa la **cantidad** de artículos
-                5. Haz clic en **Calcular precio**
+                ### ¿Cómo usar?
+                1. Selecciona el tipo de producto que deseas marcar
+                2. Elige la técnica de marcación
+                3. Especifica tintas y tamaño (si aplica)
+                4. Ingresa la cantidad de artículos
+                5. Haz clic en Calcular precio
 
-                ### ⚠️ Nota importante
-                Los precios mostrados son **NETO** y no incluyen IVA.
+                ### Nota importante
+                Los precios mostrados son NETO y no incluyen IVA.
                 Los valores pueden variar según negociación directa.
 
-                ### 👨‍💼 Contacto
+                ### Contacto
                 Para consultas o reportar problemas:  
-                📧 {config.AUTHOR_EMAIL}
-                """
+                📧 """ + config.AUTHOR_EMAIL
             )
 
         # Render footer
@@ -329,7 +334,7 @@ def main():
     except Exception as e:
         logger.error(f"Unexpected application error: {type(e).__name__}: {e}")
         st.error(
-            "❌ Ha ocurrido un error inesperado. "
+            "Ha ocurrido un error inesperado. "
             "Por favor, intente nuevamente."
         )
 
